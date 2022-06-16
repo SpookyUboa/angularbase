@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Personaje } from '../interfaces/tekken.interface';
 
 @Component({
@@ -7,8 +7,6 @@ import { Personaje } from '../interfaces/tekken.interface';
   styleUrls: ['./agregar.component.css']
 })
 export class AgregarComponent{
-
-  @Input() personajes: Personaje[] = [];
 
   @Input('nuevo') nuevo: Personaje = {
     nombre: '',
@@ -22,14 +20,18 @@ export class AgregarComponent{
   cambiarPoder(event: any){
     console.log(event)
   }
+
+  @Output() onNuevoPersonaje: EventEmitter<Personaje> = new EventEmitter();
     
   agregar(){
     if(this.nuevo.nombre.trim().length == 0){
       return;
     }
+
     console.log(this.nuevo);
 
-    this.personajes.push(this.nuevo);
+    this.onNuevoPersonaje.emit(this.nuevo);
+
     this.nuevo = {
       nombre: '',
       poder: 0

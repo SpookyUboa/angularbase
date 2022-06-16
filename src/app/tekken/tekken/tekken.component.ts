@@ -19,6 +19,11 @@ export class TekkenComponent {
     }
   ];
 
+  agregarNuevoPersonaje(char: Personaje){
+    console.log(char);
+    this.personajes.push(char)
+  }
+
   nuevo: Personaje = {
     nombre: "Jack",
     poder: 5454
