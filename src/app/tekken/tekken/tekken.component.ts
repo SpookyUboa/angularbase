@@ -9,26 +9,15 @@ import { TekkenService } from '../services/tekken.service';
 })
 export class TekkenComponent {
 
-  personajes: Personaje[] = [
-    {
-      nombre: 'Lee',
-      poder: 1100
-    },
-    {
-      nombre: 'Lidia',
-      poder: 3000
-    }
-  ];
-
   agregarNuevoPersonaje(char: Personaje){
     console.log(char);
-    this.personajes.push(char)
   }
-
-  constructor(private  tekkenSrevice: TekkenService) {}
 
   nuevo: Personaje = {
     nombre: "Jack",
     poder: 5454
+  }
+  
+  constructor(private  tekkenService: TekkenService) {
   }
 }
