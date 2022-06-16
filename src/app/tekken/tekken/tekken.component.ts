@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Personaje } from '../interfaces/tekken.interface';
+import { TekkenService } from '../services/tekken.service';
 
 @Component({
   selector: 'app-tekken',
@@ -23,6 +24,8 @@ export class TekkenComponent {
     console.log(char);
     this.personajes.push(char)
   }
+
+  constructor(private  tekkenSrevice: TekkenService) {}
 
   nuevo: Personaje = {
     nombre: "Jack",

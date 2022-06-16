@@ -4,6 +4,7 @@ import { TekkenComponent } from './tekken/tekken.component';
 import { FormsModule } from '@angular/forms';
 import { PersonajesComponent } from './personajes/personajes.component';
 import { AgregarComponent } from './agregar/agregar.component';
+import { TekkenService } from './services/tekken.service';
 
 
 
@@ -19,6 +20,9 @@ import { AgregarComponent } from './agregar/agregar.component';
   imports: [
     CommonModule,
     FormsModule
+  ],
+  providers: [
+    TekkenService
   ]
 })
 export class TekkenModule { }
