@@ -20,29 +20,7 @@ export class TekkenComponent {
   ];
 
   nuevo: Personaje = {
-    nombre: '',
-    poder: 0
+    nombre: "Jack",
+    poder: 5454
   }
-
-  cambiarNombre(event: any){
-    console.log(event)
-  }
-  
-  cambiarPoder(event: any){
-    console.log(event)
-  }
-    
-  agregar(){
-    if(this.nuevo.nombre.trim().length == 0){
-      return;
-    }
-    console.log(this.nuevo);
-
-    this.personajes.push(this.nuevo);
-    this.nuevo = {
-      nombre: '',
-      poder: 0
-    }
-  }
-
 }
