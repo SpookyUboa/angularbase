@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Personaje } from '../interfaces/tekken.interface';
+import { TekkenService } from '../services/tekken.service';
 
 @Component({
   selector: 'app-agregar',
@@ -13,6 +14,8 @@ export class AgregarComponent{
     poder: 0
   }
 
+  constructor(private tekkenService: TekkenService){}
+
   cambiarNombre(event: any){
     console.log(event)
   }
@@ -21,7 +24,7 @@ export class AgregarComponent{
     console.log(event)
   }
 
-  @Output() onNuevoPersonaje: EventEmitter<Personaje> = new EventEmitter();
+  // @Output() onNuevoPersonaje: EventEmitter<Personaje> = new EventEmitter();
     
   agregar(){
     if(this.nuevo.nombre.trim().length == 0){
@@ -30,7 +33,8 @@ export class AgregarComponent{
 
     console.log(this.nuevo);
 
-    this.onNuevoPersonaje.emit(this.nuevo);
+    // this.onNuevoPersonaje.emit(this.nuevo);
+    this.tekkenService.agregarPersonaje(this.nuevo);
 
     this.nuevo = {
       nombre: '',
